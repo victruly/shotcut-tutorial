@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shotcut 影音剪輯極簡教學指南 - 零基礎快速上手</title>
+  <meta name="description" content="本指南為免費開源影片剪輯軟體 Shotcut 的新手學習指南。內容包含工作區介面介紹、新手剪輯五步教學、熱門濾鏡應用、實用快捷鍵檢索與常見問題解答。">
+  <meta name="keywords" content="Shotcut, 剪輯軟體, 影片剪輯教學, 影片剪輯, 開源軟體, 剪片, 轉場, 濾鏡">
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header / Navigation Bar -->
+  <header class="header">
+    <div class="container nav-bar">
+      <a href="#" class="logo" id="nav-logo">
+        <i class="fa-solid fa-clapperboard"></i>
+        <span>Shotcut Tutorial</span>
+      </a>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#workspace" class="nav-link">工作區介紹</a></li>
+          <li><a href="#tutorial" class="nav-link">五步新手教學</a></li>
+          <li><a href="#filters" class="nav-link">實用濾鏡</a></li>
+          <li><a href="#shortcuts" class="nav-link">快捷鍵指南</a></li>
+          <li><a href="#faq" class="nav-link">常見問題</a></li>
+        </ul>
+      </nav>
+
+      <div class="controls-group">
+        <button class="btn-theme" id="theme-toggle" aria-label="切換深淺模式">
+          <i class="fa-solid fa-moon theme-icon-dark"></i>
+          <i class="fa-solid fa-sun theme-icon-light"></i>
+        </button>
+        <a href="https://github.com" target="_blank" class="btn-github">
+          <i class="fa-brands fa-github"></i> GitHub Pages
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-backdrop"></div>
+    <div class="container">
+      <div class="hero-tag">
+        <i class="fa-solid fa-gift"></i> 100% 免費、無浮水印的開源剪輯神器
+      </div>
+      <h1 class="hero-title">輕鬆創作您的影音作品<br>掌握 <span>Shotcut</span> 剪輯技巧</h1>
+      <p class="hero-subtitle">
+        一個功能強大的跨平台影片編輯軟體。本指南將帶領您從零開始熟悉介面、裁剪編輯、加入濾鏡並成功導出您的第一支高畫質影片！
+      </p>
+      <div class="hero-actions">
+        <a href="#tutorial" class="btn-primary">開始學習</a>
+        <a href="#workspace" class="btn-secondary">探索介面</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Layout Wrapper -->
+  <div class="container layout-wrapper">
+    
+    <!-- Sidebar / Sticky Table of Contents -->
+    <aside class="sidebar">
+      <ul class="toc-list">
+        <li><a href="#workspace" class="toc-link active">工作區介面介紹</a></li>
+        <li><a href="#tutorial" class="toc-link">五步上手教學</a></li>
+        <li><a href="#filters" class="toc-link">影音濾鏡指南</a></li>
+        <li><a href="#shortcuts" class="toc-link">快捷鍵秘笈</a></li>
+        <li><a href="#faq" class="toc-link">常見問題解答</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- Section: Workspace -->
+      <section id="workspace" class="section">
+        <div class="section-header">
+          <span class="section-label">UI Interface</span>
+          <h2 class="section-title">工作區介面導覽</h2>
+          <p class="section-desc">
+            Shotcut 採用模組化的面板設計。點擊下方視覺化介面中的不同區塊，可立即查看對應的功能說明。
+          </p>
+        </div>
+
+        <div class="workspace-container">
+          <!-- Shotcut Interface Simulation -->
+          <div class="workspace-mockup">
+            <div class="mockup-toolbar">
+              <div class="toolbar-dot r"></div>
+              <div class="toolbar-dot y"></div>
+              <div class="toolbar-dot g"></div>
+              <div class="toolbar-title">Shotcut - ProjectWorkspace.mlt</div>
+            </div>
+            
+            <div class="mockup-main">
+              <!-- Playlist Area -->
+              <div class="workspace-zone zone-playlist active" data-zone="playlist">
+                <i class="fa-solid fa-list-ul"></i>
+                播放清單 / 濾鏡面板
+                <span>點擊查看詳細說明</span>
+              </div>
+              
+              <!-- Player Area -->
+              <div class="workspace-zone zone-player" data-zone="player">
+                <i class="fa-solid fa-play"></i>
+                預覽播放器 (Player)
+                <span>點擊查看詳細說明</span>
+              </div>
+              
+              <!-- Timeline Area -->
+              <div class="workspace-zone zone-timeline" data-zone="timeline">
+                <i class="fa-solid fa-rectangle-list"></i>
+                多軌時間軸 (Timeline)
+                <span>點擊查看詳細說明</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Explanation Card -->
+          <div class="card workspace-detail-card">
+            <div class="detail-header">
+              <div class="detail-icon" id="detail-icon">
+                <i class="fa-solid fa-list-ul"></i>
+              </div>
+              <div>
+                <h3 class="detail-title" id="detail-title">播放清單與濾鏡面板</h3>
+                <small class="text-muted" style="color: var(--text-muted);">左側主要面板區</small>
+              </div>
+            </div>
+            <div class="detail-content" id="detail-content">
+              <p>
+                這是您集中管理影片素材與設定特效的地方。它包含了：
+              </p>
+              <ul class="detail-bullets">
+                <li><strong>播放清單 (Playlist)：</strong>將電腦中的影片、圖片、音效拖曳到此處進行預備。</li>
+                <li><strong>濾鏡面板 (Filters)：</strong>選取時間軸的片段後，點擊「+」即可為影片加入模糊、調色、淡入淡出或字幕等豐富特效。</li>
+                <li><strong>屬性面板 (Properties)：</strong>顯示目前選取素材的詳細參數（如解碼率、解析度、速度）。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Step-by-Step Tutorial -->
+      <section id="tutorial" class="section">
+        <div class="section-header">
+          <span class="section-label">Guide</span>
+          <h2 class="section-title">五步新手剪輯教學</h2>
+          <p class="section-desc">
+            一步一步帶您完成從素材準備到影片導出的完整剪輯工作流程。
+          </p>
+        </div>
+
+        <!-- Interactive Tab Headers -->
+        <div class="tutorial-tabs-header">
+          <button class="tutorial-tab-btn active" data-tab="step1"><span>1</span> 專案準備</button>
+          <button class="tutorial-tab-btn" data-tab="step2"><span>2</span> 素材導入與裁剪</button>
+          <button class="tutorial-tab-btn" data-tab="step3"><span>3</span> 添加轉場與效果</button>
+          <button class="tutorial-tab-btn" data-tab="step4"><span>4</span> 音訊背景樂處理</button>
+          <button class="tutorial-tab-btn" data-tab="step5"><span>5</span> 高畫質導出</button>
+        </div>
+
+        <!-- Tab Panes -->
+        <div class="tutorial-panes">
+          
+          <!-- Step 1 Pane -->
+          <div class="tutorial-content-pane active" id="step1">
+            <div class="pane-text">
+              <h3>步驟 1：建立專案與環境設定</h3>
+              <p>正確開啟專案，能確保您的輸出影片比例與來源一致，避免畫面被黑邊裁剪或解析度下降。</p>
+              <ul class="steps-list">
+                <li>
+                  <strong>設定專案資料夾</strong>
+                  <span>在主畫面的「專案資料夾」中選擇一個固定的儲存目錄，用來存放剪輯產生的專案檔。</span>
+                </li>
+                <li>
+                  <strong>命名專案</strong>
+                  <span>在「專案名稱」輸入檔名（例如：`MyFirstVlog`）。</span>
+                </li>
+                <li>
+                  <strong>選擇視訊模式（解析度）</strong>
+                  <span>建議選擇 <strong>HD 1080p 30fps</strong> 或 <strong>Automatic</strong>（自動）。自動模式會依據您匯入的第一支影片，自動設定專案解析度與幀率。</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pane-visual">
+              <div class="visual-tip">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                  <div class="visual-tip-title">新手提醒</div>
+                  <div class="visual-tip-desc">點擊「開始」按鈕後，Shotcut 就會載入乾淨的工作介面，此時專案檔 (.mlt) 已在後台建立。</div>
+                </div>
+              </div>
+              <div class="shortcut-highlight">
+                <span>新建專案快捷鍵</span>
+                <kbd>Ctrl + N</kbd>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 Pane -->
+          <div class="tutorial-content-pane" id="step2">
+            <div class="pane-text">
+              <h3>步驟 2：導入素材與基本裁剪</h3>
+              <p>將影片分割成許多片段，去蕪存菁，是所有影片剪輯的核心基本功。</p>
+              <ul class="steps-list">
+                <li>
+                  <strong>拖曳匯入</strong>
+                  <span>直接將電腦裡的影片檔拉進 Shotcut 左側的「播放清單」面板中。</span>
+                </li>
+                <li>
+                  <strong>新增軌道至時間軸</strong>
+                  <span>將播放清單裡的影片，拖曳拉到下方長條型的「時間軸」上，此時會自動建立一條視訊軌道（V1）。</span>
+                </li>
+                <li>
+                  <strong>精確分割片段 (Split)</strong>
+                  <span>把紅色時間線（指針）移到想剪開的位置，按下鍵盤上的 <kbd>S</kbd>，就能將影片一分為二。</span>
+                </li>
+                <li>
+                  <strong>刪除不要的片段 (Ripple Delete)</strong>
+                  <span>在要刪除的段落點右鍵，選擇「波紋刪除」，或直接按 <kbd>Shift + Delete</kbd>。它會在刪除的同時把後面的影片自動往前補齊，不留下黑底空隙。</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pane-visual">
+              <div class="visual-tip">
+                <i class="fa-solid fa-lightbulb"></i>
+                <div>
+                  <div class="visual-tip-title">效率技巧</div>
+                  <div class="visual-tip-desc">多加利用 <kbd>I</kbd> (標記起點) 和 <kbd>O</kbd> (標記終點) 可以先在預覽窗篩選出想要的段落，再拖入時間軸。</div>
+                </div>
+              </div>
+              <div class="shortcut-highlight">
+                <span>分割影片快捷鍵</span>
+                <kbd>S</kbd>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 Pane -->
+          <div class="tutorial-content-pane" id="step3">
+            <div class="pane-text">
+              <h3>步驟 3：製作重疊轉場與濾鏡特效</h3>
+              <p>轉場能讓兩段不連貫的畫面更自然地銜接，濾鏡則能增加影片的質感。</p>
+              <ul class="steps-list">
+                <li>
+                  <strong>一秒做出交叉淡化轉場 (Crossfade)</strong>
+                  <span>在時間軸上，按住右邊的影片，輕輕地往左**重疊拖拽**到左邊影片的尾端上。重疊區域會自動生成一個「X」符號，這就是最流暢的淡入淡出轉場。</span>
+                </li>
+                <li>
+                  <strong>套用畫面濾鏡</strong>
+                  <span>點選要套用效果的片段，點擊左上方的「濾鏡」標籤，再按下「+」號。</span>
+                </li>
+                <li>
+                  <strong>調整視訊濾鏡參數</strong>
+                  <span>例如搜尋加入「大小、位置與旋轉」，您就可以在預覽框裡直接拖拉調整影片的大小或做子母畫面。</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pane-visual">
+              <div class="visual-tip">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div>
+                  <div class="visual-tip-title">注意</div>
+                  <div class="visual-tip-desc">如果要新增文字，可以在濾鏡選單中加入「文字：簡易 (Text: Simple)」，並在輸入框中打字。</div>
+                </div>
+              </div>
+              <div class="shortcut-highlight">
+                <span>打開濾鏡面板</span>
+                <kbd>Ctrl + 6</kbd>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 Pane -->
+          <div class="tutorial-content-pane" id="step4">
+            <div class="pane-text">
+              <h3>步驟 4：音訊調整與背景音樂</h3>
+              <p>好聲音決定了影片一半的品質。本步驟介紹如何導入音樂、淡化音效並平衡音量。</p>
+              <ul class="steps-list">
+                <li>
+                  <strong>建立音訊軌道</strong>
+                  <span>在時間軸的左方空白處點擊右鍵，選擇「軌道操作」 -> 「新增音訊軌」。這會新增一條音訊專用軌道（A1）。</span>
+                </li>
+                <li>
+                  <strong>分離影片音訊</strong>
+                  <span>如果想單獨調整影片裡的人聲，可在視訊片段上點右鍵，選擇「更多」 -> 「分離音訊」，人聲就會掉到下方的音訊軌道。</span>
+                </li>
+                <li>
+                  <strong>添加背景音樂與淡入淡出</strong>
+                  <span>將音樂檔拉入 A1 軌道，在音樂尾巴的右上角，會出現一個小圓點，往左邊拉動，就能讓音樂在結尾處緩慢「淡出」，避免聲音突兀中斷。</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pane-visual">
+              <div class="visual-tip">
+                <i class="fa-solid fa-volume-high"></i>
+                <div>
+                  <div class="visual-tip-title">音量安全值</div>
+                  <div class="visual-tip-desc">一般人聲說話的音量最好維持在 -6dB 到 -12dB 之間；而背景音樂則應控制在 -20dB 到 -30dB，避免蓋過說話聲。</div>
+                </div>
+              </div>
+              <div class="shortcut-highlight">
+                <span>新增音軌快捷鍵</span>
+                <kbd>Ctrl + U</kbd>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 Pane -->
+          <div class="tutorial-content-pane" id="step5">
+            <div class="pane-text">
+              <h3>步驟 5：高畫質導出與分享</h3>
+              <p>剪輯完成後，最後一步是將您的專案編碼輸出為可在 YouTube、手機播放的 MP4 格式。</p>
+              <ul class="steps-list">
+                <li>
+                  <strong>打開導出面板</strong>
+                  <span>點擊頂部工具列的「輸出 (Export)」圖示，左側會展開輸出預設集面板。</span>
+                </li>
+                <li>
+                  <strong>選擇編碼格式</strong>
+                  <span>對於大多數用途，請直接在預設集中選擇 <strong>H.264 Baseline Profile</strong> 或 <strong>Default (MP4)</strong>。這能確保最高的相容性與較佳的壓縮品質。</span>
+                </li>
+                <li>
+                  <strong>執行導出</strong>
+                  <span>確認輸出源為「時間軸 (Timeline)」，然後點擊底部的「輸出檔案」按鈕，選擇儲存路徑並存檔。此時右側的「工作 (Jobs)」面板會顯示編碼百分比進度。</span>
+                </li>
+              </ul>
+            </div>
+            <div class="pane-visual">
+              <div class="visual-tip">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <div class="visual-tip-title">恭喜完成</div>
+                  <div class="visual-tip-desc">進度條達到 100% 後，即可到目標資料夾點開 MP4 影片進行驗收，並上傳到 YouTube 或社群平台！</div>
+                </div>
+              </div>
+              <div class="shortcut-highlight">
+                <span>打開導出面板</span>
+                <kbd>Ctrl + 9</kbd>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section: Filters Guide -->
+      <section id="filters" class="section">
+        <div class="section-header">
+          <span class="section-label">Filters</span>
+          <h2 class="section-title">熱門實用濾鏡指南</h2>
+          <p class="section-desc">
+            Shotcut 內建上百種濾鏡。我們為您精選出幾款剪片時使用頻率最高、效果最顯著的濾鏡及操作要點。
+          </p>
+        </div>
+
+        <div class="filter-grid">
+          
+          <!-- Filter 1 -->
+          <div class="card">
+            <span class="filter-badge video">視訊濾鏡</span>
+            <h3 class="filter-title">大小、位置與旋轉 (Size, Position & Rotate)</h3>
+            <p class="filter-desc">這是最基礎也最常用的濾鏡，用來縮放畫面、製作子母畫面或平移運鏡。</p>
+            <div class="filter-usage">
+              <div class="filter-usage-title">常見用途</div>
+              <div class="filter-usage-desc">配合「關鍵影格 (Keyframes)」，可以實現手動畫面平滑拉近拉遠的動畫特效。</div>
+            </div>
+          </div>
+
+          <!-- Filter 2 -->
+          <div class="card">
+            <span class="filter-badge video">視訊濾鏡</span>
+            <h3 class="filter-title">文字：簡易 (Text: Simple)</h3>
+            <p class="filter-desc">能在影片上快速加浮水印、標題或一般旁白對話框，支援更換字體、外框線與底色。</p>
+            
+            <!-- Interactive Visual Tabs -->
+            <div class="filter-media-tabs">
+              <div class="filter-media-tab-btns">
+                <button class="media-tab-btn active" data-media-tab="preview">效果預覽</button>
+                <button class="media-tab-btn" data-media-tab="steps">圖文步驟教學</button>
+              </div>
+              
+              <!-- Tab Content: Preview -->
+              <div class="media-tab-content active" id="media-preview-content">
+                <div class="filter-preview-img-container">
+                  <img src="images/text_filter_guide.png" alt="Shotcut 文字:簡易 濾鏡使用示範" class="filter-preview-img">
+                  <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大查看介面與效果</div>
+                </div>
+              </div>
+              
+              <!-- Tab Content: Steps -->
+              <div class="media-tab-content" id="media-steps-content">
+                <div class="text-step-carousel">
+                  <div class="carousel-slide active" data-slide="1">
+                    <div class="filter-preview-img-container">
+                      <img src="images/step1_filters_tab.png" alt="步驟 1: 點擊左側的『Filters』(濾鏡) 標籤" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 1</div>
+                    </div>
+                    <p class="slide-text"><strong>第一步：</strong>點選軌道片段，點擊左側<strong>「Filters (濾鏡)」</strong>分頁。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="2">
+                    <div class="filter-preview-img-container">
+                      <img src="images/step2_add_button.png" alt="步驟 2: 點擊『+』新增按鈕" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 2</div>
+                    </div>
+                    <p class="slide-text"><strong>第二步：</strong>在濾鏡面板中，點擊左下角<strong>「+」</strong>新增按鈕。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="3">
+                    <div class="filter-preview-img-container">
+                      <img src="images/step3_select_text_simple.png" alt="步驟 3: 搜尋並選擇『Text: Simple』" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 3</div>
+                    </div>
+                    <p class="slide-text"><strong>第三步：</strong>搜尋輸入「text」，點擊並選取<strong>「Text: Simple」</strong>。</p>
+                  </div>
+                  
+                  <!-- Carousel Nav Buttons -->
+                  <div class="carousel-nav">
+                    <button class="carousel-btn prev-btn" aria-label="上一步"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="carousel-dots">
+                      <span class="carousel-dot active" data-slide-to="1"></span>
+                      <span class="carousel-dot" data-slide-to="2"></span>
+                      <span class="carousel-dot" data-slide-to="3"></span>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="下一步"><i class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-usage">
+              <div class="filter-usage-title">常見用途</div>
+              <div class="filter-usage-desc">在輸入框鍵入 <code>#timecode#</code> 可以自動顯示播放時間碼，方便檢視。</div>
+            </div>
+          </div>
+
+          <!-- Filter 3 -->
+          <div class="card">
+            <span class="filter-badge video">視訊濾鏡</span>
+            <h3 class="filter-title">淡入 / 淡出視訊 (Fade In / Out Video)</h3>
+            <p class="filter-desc">讓影片從黑幕慢慢顯現，或在結束時緩慢進入黑幕，增添電影感。</p>
+            <div class="filter-usage">
+              <div class="filter-usage-title">常見用途</div>
+              <div class="filter-usage-desc">勾選「調整不透明度而非轉為黑色」，可以做出透明度漸變的轉場。</div>
+            </div>
+          </div>
+
+          <!-- Filter 4 -->
+          <div class="card">
+            <span class="filter-badge audio">音訊濾鏡</span>
+            <h3 class="filter-title">音量與增益 (Gain / Volume)</h3>
+            <p class="filter-desc">調整特定片段的聲音大小。如果錄音時人聲太小，可以加此濾鏡增益音量。</p>
+            <div class="filter-usage audio-border">
+              <div class="filter-usage-title">常見用途</div>
+              <div class="filter-usage-desc">如果發生聲音破音（電平表發紅），需調降 dB 數值以確保聽覺舒適。</div>
+            </div>
+          </div>
+
+          <!-- Filter 5 -->
+          <div class="card">
+            <span class="filter-badge audio">音訊濾鏡</span>
+            <h3 class="filter-title">淡入 / 淡出音訊 (Fade In / Out Audio)</h3>
+            <p class="filter-desc">讓聲音以平滑的斜率漸強或漸弱，是去除音訊卡點爆音的必備技巧。</p>
+            <div class="filter-usage audio-border">
+              <div class="filter-usage-title">常見用途</div>
+              <div class="filter-usage-desc">一般背景音樂在開頭套用 1 秒淡入，結尾套用 3~5 秒淡出效果最佳。</div>
+            </div>
+          </div>
+
+          <!-- Filter 6 -->
+          <div class="card">
+            <span class="filter-badge audio">音訊濾鏡</span>
+            <h3 class="filter-title">高通 / 低通濾波器 (High/Low Pass)</h3>
+            <p class="filter-desc">用來消除錄音背景中的低頻電流聲，或者高頻的刺耳風切雜音。</p>
+            <div class="filter-usage audio-border">
+              <div class="filter-usage-title">常見用途</div>
+              <div class="filter-usage-desc">使用低通濾波器（Low Pass）可以輕鬆做出「電話亭裡說話」的悶音特效。</div>
+            </div>
+          </div>
+
+          <!-- Filter 7 -->
+          <div class="card">
+            <span class="filter-badge video">進階技巧</span>
+            <h3 class="filter-title">影片加紅框標記 (Text: Rich - Border)</h3>
+            <p class="filter-desc">在影片中框住特定文字或物件。使用「文字：進階」加入表格外框，能自由移動與縮放，不需額外軌道。</p>
+            
+            <!-- Interactive Visual Tabs -->
+            <div class="filter-media-tabs">
+              <div class="filter-media-tab-btns">
+                <button class="media-tab-btn active" data-media-tab="preview">效果預覽</button>
+                <button class="media-tab-btn" data-media-tab="steps">圖文步驟教學</button>
+              </div>
+              
+              <!-- Tab Content: Preview -->
+              <div class="media-tab-content active" id="redbox-preview-content">
+                <div class="filter-preview-img-container">
+                  <img src="images/red_box_step3_result.png" alt="Shotcut 影片加紅框標記示範" class="filter-preview-img">
+                  <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大查看最終效果</div>
+                </div>
+              </div>
+              
+              <!-- Tab Content: Steps -->
+              <div class="media-tab-content" id="redbox-steps-content">
+                <div class="text-step-carousel">
+                  <div class="carousel-slide active" data-slide="1">
+                    <div class="filter-preview-img-container">
+                      <img src="images/red_box_step1_table.png" alt="步驟 1: 新增 Text: Rich 濾鏡並點選表格圖示" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 1</div>
+                    </div>
+                    <p class="slide-text"><strong>第一步：</strong>新增<strong>「Text: Rich」</strong>濾鏡，並點擊下方工具列的<strong>「Table (表格)」</strong>圖示。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="2">
+                    <div class="filter-preview-img-container">
+                      <img src="images/red_box_step2_border.png" alt="步驟 2: 設定表格邊框寬度與顏色" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 2</div>
+                    </div>
+                    <p class="slide-text"><strong>第二步：</strong>在表格屬性中，將<strong>「Border width (邊框寬度)」</strong>設為 4px，並將<strong>「Border Color (邊框顏色)」</strong>選為紅色。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="3">
+                    <div class="filter-preview-img-container">
+                      <img src="images/red_box_step3_result.png" alt="步驟 3: 拖曳調整紅框大小與位置" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 3</div>
+                    </div>
+                    <p class="slide-text"><strong>第三步：</strong>清除預設文字，直接拖曳該表格框框，即可精確框住預覽畫面上的文字或圖案！</p>
+                  </div>
+                  
+                  <!-- Carousel Nav Buttons -->
+                  <div class="carousel-nav">
+                    <button class="carousel-btn prev-btn" aria-label="上一步"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="carousel-dots">
+                      <span class="carousel-dot active" data-slide-to="1"></span>
+                      <span class="carousel-dot" data-slide-to="2"></span>
+                      <span class="carousel-dot" data-slide-to="3"></span>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="下一步"><i class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-usage">
+              <div class="filter-usage-title">效率技巧</div>
+              <div class="filter-usage-desc">可以藉由調整表格的「Padding (內襯)」與「Spacing (間距)」來細微調整邊框的粗細與對齊。</div>
+            </div>
+          </div>
+
+          <!-- Filter 8 -->
+          <div class="card">
+            <span class="filter-badge video">實用技巧</span>
+            <h3 class="filter-title">多軌紅框圖片法 (Image Overlay - Red Box)</h3>
+            <p class="filter-desc">最直覺、自由度最高的紅框標記方式。直接將透明紅框 PNG 匯入獨立軌道，並利用「大小、位置與旋轉」濾鏡拖曳縮放。</p>
+            
+            <!-- Interactive Visual Tabs -->
+            <div class="filter-media-tabs">
+              <div class="filter-media-tab-btns">
+                <button class="media-tab-btn active" data-media-tab="preview">效果預覽</button>
+                <button class="media-tab-btn" data-media-tab="steps">圖文步驟教學</button>
+              </div>
+              
+              <!-- Tab Content: Preview -->
+              <div class="media-tab-content active" id="overlay-preview-content">
+                <div class="filter-preview-img-container">
+                  <img src="images/overlay_step3_position.png" alt="Shotcut 多軌紅框圖片示範" class="filter-preview-img">
+                  <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大查看縮放效果</div>
+                </div>
+              </div>
+              
+              <!-- Tab Content: Steps -->
+              <div class="media-tab-content" id="overlay-steps-content">
+                <div class="text-step-carousel">
+                  <div class="carousel-slide active" data-slide="1">
+                    <div class="filter-preview-img-container">
+                      <img src="images/overlay_step1_tracks.png" alt="步驟 1: 新增視訊軌道並拉入紅框 PNG" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 1</div>
+                    </div>
+                    <p class="slide-text"><strong>第一步：</strong>按 <kbd>Ctrl + I</kbd> 新增軌道 V2，將 <code>red_box_overlay.png</code> 拖曳置於上方。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="2">
+                    <div class="filter-preview-img-container">
+                      <img src="images/overlay_step2_filter.png" alt="步驟 2: 套用大小、位置與旋轉濾鏡" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 2</div>
+                    </div>
+                    <p class="slide-text"><strong>第二步：</strong>點選紅框片段，新增<strong>「Size, Position & Rotate (大小、位置與旋轉)」</strong>濾鏡。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="3">
+                    <div class="filter-preview-img-container">
+                      <img src="images/overlay_step3_position.png" alt="步驟 3: 在預覽框直接拖拉縮放紅框" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 3</div>
+                    </div>
+                    <p class="slide-text"><strong>第三步：</strong>直接在預覽畫面上拖曳紅框四周的控制點，就能隨意縮放並移動到任何位置！</p>
+                  </div>
+                  
+                  <!-- Carousel Nav Buttons -->
+                  <div class="carousel-nav">
+                    <button class="carousel-btn prev-btn" aria-label="上一步"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="carousel-dots">
+                      <span class="carousel-dot active" data-slide-to="1"></span>
+                      <span class="carousel-dot" data-slide-to="2"></span>
+                      <span class="carousel-dot" data-slide-to="3"></span>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="下一步"><i class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-usage">
+              <div class="filter-usage-title">我們為您準備的素材</div>
+              <div class="filter-usage-desc">
+                專案目錄已為您建立好透明紅框圖片：<a href="file:///Users/vicwang/Documents/Antigravity/shotcut-tutorial/images/red_box_overlay.png" target="_blank" style="font-weight:600;">images/red_box_overlay.png</a>，您可以直接使用！
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter 9 -->
+          <div class="card">
+            <span class="filter-badge video">動態追蹤</span>
+            <h3 class="filter-title">紅框動態追蹤 (Keyframe Motion Tracking)</h3>
+            <p class="filter-desc">讓紅框跟著移動的主體自動移動。利用「大小、位置與旋轉」濾鏡中的「關鍵影格 (Keyframes)」為移動軌跡設點。</p>
+            
+            <!-- Interactive Visual Tabs -->
+            <div class="filter-media-tabs">
+              <div class="filter-media-tab-btns">
+                <button class="media-tab-btn active" data-media-tab="preview">效果預覽</button>
+                <button class="media-tab-btn" data-media-tab="steps">圖文步驟教學</button>
+              </div>
+              
+              <!-- Tab Content: Preview -->
+              <div class="media-tab-content active" id="tracking-preview-content">
+                <div class="filter-preview-img-container">
+                  <img src="images/tracking_step3_motion_path.png" alt="Shotcut 關鍵影格動態追蹤示範" class="filter-preview-img">
+                  <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大查看追蹤運動軌跡</div>
+                </div>
+              </div>
+              
+              <!-- Tab Content: Steps -->
+              <div class="media-tab-content" id="tracking-steps-content">
+                <div class="text-step-carousel">
+                  <div class="carousel-slide active" data-slide="1">
+                    <div class="filter-preview-img-container">
+                      <img src="images/tracking_step1_keyframe_toggle.png" alt="步驟 1: 點擊時鐘圖示啟用關鍵影格" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 1</div>
+                    </div>
+                    <p class="slide-text"><strong>第一步：</strong>新增「大小、位置與旋轉」濾鏡，並點擊位置與大小後方的<strong>「Stopwatch (時鐘)」</strong>圖示以啟用關鍵影格。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="2">
+                    <div class="filter-preview-img-container">
+                      <img src="images/tracking_step2_add_keyframe.png" alt="步驟 2: 移動時間軸並調整框線位置" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 2</div>
+                    </div>
+                    <p class="slide-text"><strong>第二步：</strong>在時間軸移到新時間，在畫面上將紅框移到主體新位置，系統會自動在影格線上生成一個<strong>「鑽石影格點」</strong>。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="3">
+                    <div class="filter-preview-img-container">
+                      <img src="images/tracking_step3_motion_path.png" alt="步驟 3: 完成多點設定並預覽動態效果" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 3</div>
+                    </div>
+                    <p class="slide-text"><strong>第三步：</strong>重複上述步驟為移動路徑設點，播回影片時，紅框就會跟隨移動主體（如步行的行人）自動移動！</p>
+                  </div>
+                  
+                  <!-- Carousel Nav Buttons -->
+                  <div class="carousel-nav">
+                    <button class="carousel-btn prev-btn" aria-label="上一步"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="carousel-dots">
+                      <span class="carousel-dot active" data-slide-to="1"></span>
+                      <span class="carousel-dot" data-slide-to="2"></span>
+                      <span class="carousel-dot" data-slide-to="3"></span>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="下一步"><i class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-usage">
+              <div class="filter-usage-title">新手提示</div>
+              <div class="filter-usage-desc">如果主體移動速度快且不規則，建議每隔 5 到 10 影格手動微調一次紅框位置，這能確保追蹤框不會跟丟。</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section: Keyboard Shortcuts -->
+      <section id="shortcuts" class="section">
+        <div class="section-header">
+          <span class="section-label">Keyboard Cheatsheet</span>
+          <h2 class="section-title">高效率鍵盤快捷鍵</h2>
+          <p class="section-desc">
+            善用快捷鍵可以大幅加快剪片速度。使用搜尋框或分類按鈕來快速尋找您需要的捷徑。
+          </p>
+        </div>
+
+        <!-- Search and Categorization -->
+        <div class="shortcuts-controls">
+          <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="shortcut-search" class="search-input" placeholder="搜尋快捷鍵（例如：分割、複製、Delete...）">
+          </div>
+          <div class="filter-buttons">
+            <button class="btn-filter active" data-filter="all">全部</button>
+            <button class="btn-filter" data-filter="editing">剪輯</button>
+            <button class="btn-filter" data-filter="playback">播放/瀏覽</button>
+            <button class="btn-filter" data-filter="track">軌道操作</button>
+          </div>
+        </div>
+
+        <!-- Shortcuts Grid Container -->
+        <div class="shortcuts-grid" id="shortcuts-grid">
+          <!-- Shortcuts elements are rendered or queried here. Standard HTML provided for fallback. -->
+          <div class="shortcut-card" data-category="editing">
+            <div class="shortcut-info">
+              <span class="shortcut-name">分割片段</span>
+              <span class="shortcut-cat">剪輯</span>
+            </div>
+            <kbd>S</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="editing">
+            <div class="shortcut-info">
+              <span class="shortcut-name">波紋刪除 (不留空隙)</span>
+              <span class="shortcut-cat">剪輯</span>
+            </div>
+            <kbd>Shift + Del</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="editing">
+            <div class="shortcut-info">
+              <span class="shortcut-name">撤銷上一步</span>
+              <span class="shortcut-cat">剪輯</span>
+            </div>
+            <kbd>Ctrl + Z</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="editing">
+            <div class="shortcut-info">
+              <span class="shortcut-name">重做下一步</span>
+              <span class="shortcut-cat">剪輯</span>
+            </div>
+            <kbd>Ctrl + Y</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="playback">
+            <div class="shortcut-info">
+              <span class="shortcut-name">播放 / 暫停</span>
+              <span class="shortcut-cat">播放/瀏覽</span>
+            </div>
+            <kbd>Space</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="playback">
+            <div class="shortcut-info">
+              <span class="shortcut-name">標記入點 (起點)</span>
+              <span class="shortcut-cat">播放/瀏覽</span>
+            </div>
+            <kbd>I</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="playback">
+            <div class="shortcut-info">
+              <span class="shortcut-name">標記出點 (終點)</span>
+              <span class="shortcut-cat">播放/瀏覽</span>
+            </div>
+            <kbd>O</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="playback">
+            <div class="shortcut-info">
+              <span class="shortcut-name">前進一幀</span>
+              <span class="shortcut-cat">播放/瀏覽</span>
+            </div>
+            <kbd>→</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="playback">
+            <div class="shortcut-info">
+              <span class="shortcut-name">後退一幀</span>
+              <span class="shortcut-cat">播放/瀏覽</span>
+            </div>
+            <kbd>←</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="track">
+            <div class="shortcut-info">
+              <span class="shortcut-name">新增視訊軌道</span>
+              <span class="shortcut-cat">軌道操作</span>
+            </div>
+            <kbd>Ctrl + I</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="track">
+            <div class="shortcut-info">
+              <span class="shortcut-name">新增音訊軌道</span>
+              <span class="shortcut-cat">軌道操作</span>
+            </div>
+            <kbd>Ctrl + U</kbd>
+          </div>
+
+          <div class="shortcut-card" data-category="track">
+            <div class="shortcut-info">
+              <span class="shortcut-name">波紋開關 (切換)</span>
+              <span class="shortcut-cat">軌道操作</span>
+            </div>
+            <kbd>R</kbd>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: FAQ Accordion -->
+      <section id="faq" class="section">
+        <div class="section-header">
+          <span class="section-label">Q&A</span>
+          <h2 class="section-title">常見問題與障礙排除</h2>
+          <p class="section-desc">
+            彙整了新手在使用 Shotcut 剪片時最常遇到的瓶頸與相應的解決策略。
+          </p>
+        </div>
+
+        <div class="faq-list">
+          
+          <details class="faq-item">
+            <summary class="faq-question">問題一：剪輯高畫質影片（如 4K）時播放非常卡頓，該怎麼辦？</summary>
+            <div class="faq-answer">
+              <p>這是新手常遇到的效能瓶頸。您可以透過以下兩種方式顯著改善：</p>
+              <ol style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <li><strong>啟用代理編輯 (Proxy)：</strong>在頂部選單選擇「設定 (Settings)」->「代理 (Proxy)」->「使用代理 (Use Proxy)」。Shotcut 會自動生成低解析度的暫存檔供您流暢剪輯，導出時會自動換回高畫質原檔。</li>
+                <li><strong>降低預覽縮放 (Preview Scaling)：</strong>選擇「設定 (Settings)」->「預覽縮放 (Preview Scaling)」，將其改為 360p 或 540p，可以大幅減少即時解碼的運算壓力。</li>
+              </ol>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">問題二：剪輯過程中軟體無預警崩潰，我的進度會不見嗎？</summary>
+            <div class="faq-answer">
+              <p>Shotcut 具有自動保存機制。如果程式不幸崩潰，下次重新開啟 Shotcut 時，系統通常會彈出一個提示視窗詢問是否「恢復未儲存的專案」。</p>
+              <p style="margin-top: 0.5rem;"><strong>最佳實踐：</strong>養成良好習慣，剪片時隨手按下 <kbd>Ctrl + S</kbd> 進行手動存檔，或者定期將專案「另存新檔」備份，是最保險的做法。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">問題三：如何製作淡入淡出以外的進階動態轉場效果？</summary>
+            <div class="faq-answer">
+              <p>除了簡單的重疊淡化轉場外，您還可以利用「轉場屬性」來更換樣式：</p>
+              <p style="margin-top: 0.5rem;">當您將兩段影片重疊並產生一個「X」轉場區塊後，<strong>點擊該「X」區塊</strong>，接著打開左上角的「屬性 (Properties)」面板。在「視訊 (Video)」下拉選單中，您可以將轉場從「溶解 (Dissolve)」切換為「水平劃出 (Barn Door)」、「矩形 (Box)」、「對角線 (Diagonal)」等多達數十種擦除過渡效果。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">問題四：為什麼我導出的 MP4 影片容量非常大，或者畫質很差？</summary>
+            <div class="faq-answer">
+              <p>這與導出面板的「率控制 (Rate Control)」設定有關。如果您選擇了預設集中的 Default(MP4)：</p>
+              <ul style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <li><strong>預設品質百分比：</strong>預設的品質通常是 55%（對應 CRF 約為 23），這在畫質與檔案大小之間取得了完美的平衡。</li>
+                <li><strong>調高畫質：</strong>如果覺得畫質不夠，可以在導出的「進階」設定中，將品質提升到 60% ~ 70% 之間，但請勿調至 100%，否則檔案體積會暴增數倍，且肉眼無法分辨差異。</li>
+              </ul>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#" class="footer-logo">
+          <i class="fa-solid fa-clapperboard"></i> <span>Shotcut Tutorial</span>
+        </a>
+        <ul class="footer-links">
+          <li><a href="#workspace">工作區介紹</a></li>
+          <li><a href="#tutorial">新手教學</a></li>
+          <li><a href="#filters">濾鏡介紹</a></li>
+          <li><a href="#shortcuts">快捷鍵</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Shotcut 繁體中文教學指南. 保留所有權利。</p>
+        <p>本網頁採用靜態 HTML & Vanilla CSS 開發，適合託管於 GitHub Pages 上。</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox-modal">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Zoomed view">
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
