@@ -683,6 +683,72 @@
             </div>
           </div>
 
+          <!-- Filter 10 -->
+          <div class="card">
+            <span class="filter-badge video">畫面控制</span>
+            <h3 class="filter-title">凍結影格 / 延長靜止畫面 (Freeze Frame)</h3>
+            <p class="filter-desc">將影片中的某個瞬間「定格」延長數秒。匯出單一影格圖片後，將其插回時間軸並自由拉長持續時間。</p>
+            
+            <!-- Interactive Visual Tabs -->
+            <div class="filter-media-tabs">
+              <div class="filter-media-tab-btns">
+                <button class="media-tab-btn active" data-media-tab="preview">效果預覽</button>
+                <button class="media-tab-btn" data-media-tab="steps">圖文步驟教學</button>
+              </div>
+              
+              <!-- Tab Content: Preview -->
+              <div class="media-tab-content active" id="freeze-preview-content">
+                <div class="filter-preview-img-container">
+                  <img src="images/freeze_frame_step3_insert.png" alt="Shotcut 凍結影格延長畫面示範" class="filter-preview-img">
+                  <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大查看時間軸插入效果</div>
+                </div>
+              </div>
+              
+              <!-- Tab Content: Steps -->
+              <div class="media-tab-content" id="freeze-steps-content">
+                <div class="text-step-carousel">
+                  <div class="carousel-slide active" data-slide="1">
+                    <div class="filter-preview-img-container">
+                      <img src="images/freeze_frame_step1_export.png" alt="步驟 1: 點選檔案，選擇匯出影格" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 1</div>
+                    </div>
+                    <p class="slide-text"><strong>第一步：</strong>將時間軸指針移到定格位置，點擊左上角<strong>「File (檔案)」->「Export (匯出)」->「Frame (影格...)」</strong>匯出為 PNG 圖片。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="2">
+                    <div class="filter-preview-img-container">
+                      <img src="images/freeze_frame_step2_split.png" alt="步驟 2: 分割影片並拉出空隙" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 2</div>
+                    </div>
+                    <p class="slide-text"><strong>第二步：</strong>在指針處按下 <kbd>S</kbd> 分割影片，並將右半邊影片往右拉動，在時間軸上<strong>「製造出一個空隙」</strong>。</p>
+                  </div>
+                  <div class="carousel-slide" data-slide="3">
+                    <div class="filter-preview-img-container">
+                      <img src="images/freeze_frame_step3_insert.png" alt="步驟 3: 插入圖片並向右拉長持續時間" class="filter-preview-img">
+                      <div class="filter-preview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大 - 步驟 3</div>
+                    </div>
+                    <p class="slide-text"><strong>第三步：</strong>將匯出的圖片放入時間軸空隙中，用滑鼠<strong>「拖曳圖片片段的右側邊緣」</strong>，即可自由拉長定格畫面秒數！</p>
+                  </div>
+                  
+                  <!-- Carousel Nav Buttons -->
+                  <div class="carousel-nav">
+                    <button class="carousel-btn prev-btn" aria-label="上一步"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="carousel-dots">
+                      <span class="carousel-dot active" data-slide-to="1"></span>
+                      <span class="carousel-dot" data-slide-to="2"></span>
+                      <span class="carousel-dot" data-slide-to="3"></span>
+                    </div>
+                    <button class="carousel-btn next-btn" aria-label="下一步"><i class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-usage">
+              <div class="filter-usage-title">效率技巧</div>
+              <div class="filter-usage-desc">匯出影格的預設快捷鍵為 <kbd>Ctrl + Shift + E</kbd>（Mac 為 <kbd>Cmd + Shift + E</kbd>），使用快捷鍵能更快速完成定格。</div>
+            </div>
+          </div>
+
         </div>
       </section>
 
